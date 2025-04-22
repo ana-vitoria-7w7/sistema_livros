@@ -6,21 +6,23 @@ class RecomendacoesController {
         $usuarioDAO = new UsuarioDAO();
         $generoDAO = new GeneroDAO();
     
-        $usuarios = $usuarioDAO->getAll();  
-        $generos = $generoDAO->getAll();    
+        $usuarios = $usuarioDAO->getAll();
+        $generos = $generoDAO->getAll();
+
+        echo "<pre>";
+        var_dump($usuarios);
+        var_dump($generos);
+        echo "</pre>";
+
+        include_once '../Views/Recomendacoes/formRecomendacoes.php';
     
-        var_dump($usuarios); 
-        var_dump($generos);   
-        die(); 
-    
-        include_once '../views/Recomendacoes/listarRecomendacoes.php';
     }
     
     
-    public function cadastrarRecomendacoes($usuarioId, $generoId, $livroRecomendado) {
+    public function cadastrarRecomendacoes($usuario, $genero, $livroRecomendado) {
         try {
             $recomendacoesDAO = new RecomendacoesDAO();
-            $recomendacoesDAO->insert($usuarioId, $generoId, $livroRecomendado);
+            $recomendacoesDAO->insert($usuario, $genero, $livroRecomendado);
             header("Location: index.php?page=listarRecomendacoes");
             exit();
         } catch (Exception $e) {
@@ -33,6 +35,7 @@ class RecomendacoesController {
         $recomendacoes = $recomendacoesDAO->getAll();
         include_once '../views/Recomendacoes/listarRecomendacoes.php';
     }
+    
 
     public function formEditarRecomendacoes($id) {
         $recomendacoesDAO = new RecomendacoesDAO();
