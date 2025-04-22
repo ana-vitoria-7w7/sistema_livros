@@ -10,7 +10,7 @@
         <input type="text" placeholder="Digite o ID do gênero" id="genero" name="genero_id" required><br><br>
 
         <label for="livro">Livro Recomendado:</label>
-        <input type="text" id="livro" name="livroRecomendado" required><br><br>
+        <input type="text" placeholder="Digite o título do livro recomendado" id="livro" name="livroRecomendado" required><br><br>
 
         <button type="submit">Cadastrar</button>
     </form>
