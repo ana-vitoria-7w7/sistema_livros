@@ -1,3 +1,9 @@
+body {
+    background-color: #242331; 
+    color: #ffffff; 
+    font-family: Arial, sans-serif; 
+}
+
 .btnback {
     font-family: 'Arial', sans-serif;
     text-decoration: none;
@@ -33,15 +39,15 @@ th, td {
 }
 
 thead {
-    background-color: #f2f2f2;
+    background-color: #423950;
 }
 
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #797385;
 }
 
 tr:hover {
-    background-color: #f1f1f1;
+    background-color: #797385;
 }
 
 td a {
