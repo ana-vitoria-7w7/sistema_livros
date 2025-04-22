@@ -7,7 +7,9 @@
     <title>Sistema de Recomendações</title>
 </head>
 <body>
-    <h1 class="titulo">OWL.ME</h1>
+     <div class="divTitulo container">
+        <h1 class="titulo">OWL.ME</h1>
+    </div>
     <div class="divPrincipal" >
         <ul class="container">
             <li><a class="divComplementares" href="index.php?page=listarUsuario">Gerenciar Usuários</a></li><br><br>
