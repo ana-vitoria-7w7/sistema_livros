@@ -70,22 +70,18 @@ p {
 }
 
 .btnback {
-    display: flex;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    background-color: #797385;
-    color: white;
+    font-family: 'Arial', sans-serif;
     text-decoration: none;
-    text-align: center;
+    font-size: 18px;
+    padding: 8px 20px 8px 20px;
+    background-color: 797385;
+    color: #fffeff;
+    border: none;
+    left: 92%;
+    height: auto;
+    cursor: pointer;
     border-radius: 5px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    justify-content: center;
-    position: relative;
-    top: 84%;
-    width: 200px;
-    left: 50%;
-
+    position: fixed;
 }
 
 .btnback:hover {
