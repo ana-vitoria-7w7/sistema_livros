@@ -19,7 +19,7 @@ class RecomendacoesDAO {
 
     public function getAll() {
         $sql = "SELECT r.id, u.nome AS usuario, g.nome AS genero, r.livro_recomendado
-                FROM recomendacao r
+                FROM recomendacoes r
                 JOIN usuarios u ON r.usuario_id = u.id
                 JOIN generos g ON r.genero_id = g.id";
         $stmt = $this->connection->query($sql);
