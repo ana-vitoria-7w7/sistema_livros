@@ -7,11 +7,13 @@ class RecomendacoesDAO {
     }
 
     public function insert($usuarioId, $generoId, $livroRecomendado) {
-        $sql = "INSERT INTO recomendacao (usuario_id, genero_id, livro_recomendado) VALUES (:usuarioId, :generoId, :livroRecomendado)";
+        $sql = "INSERT INTO recomendacoes (usuario_id, genero_id, livro_recomendado) VALUES (:usuario_id, :genero_id, :livro_recomendado)";
         $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam(':usuarioId', $usuarioId);
-        $stmt->bindParam(':generoId', $generoId);
-        $stmt->bindParam(':livroRecomendado', $livroRecomendado);
+        
+        $stmt->bindParam(':usuario_id', $usuarioId);
+        $stmt->bindParam(':genero_id', $generoId);
+        $stmt->bindParam(':livro_recomendado', $livroRecomendado);
+    
         $stmt->execute();
     }
 
