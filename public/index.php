@@ -14,49 +14,99 @@ switch ($page) {
     case 'home':
         include_once '../Views/home.php';
         break;
+        
     case 'listarUsuario':
         $usuarioController->listarUsuarios();
         break;
+        
     case 'cadastrarUsuario':
-        $usuarioController->cadastrarUsuario($_POST['nome'], $_POST['email']);
+        if (isset($_POST['nome']) && isset($_POST['email'])) {
+            $usuarioController->cadastrarUsuario($_POST['nome'], $_POST['email']);
+        } else {
+            echo "<p style='color:red;'>Erro: Dados insuficientes para cadastro de usuário.</p>";
+        }
         break;
+        
     case 'editarUsuario':
-        $usuarioController->editarUsuario($_POST['id'], $_POST['nome'], $_POST['email']);
+        if (isset($_POST['id'], $_POST['nome'], $_POST['email'])) {
+            $usuarioController->editarUsuario($_POST['id'], $_POST['nome'], $_POST['email']);
+        } else {
+            echo "<p style='color:red;'>Erro: Dados insuficientes para edição de usuário.</p>";
+        }
         break;
+        
     case 'excluirUsuario':
-        $usuarioController->excluirUsuario($_GET['id']);
+        if (isset($_GET['id'])) {
+            $usuarioController->excluirUsuario($_GET['id']);
+        } else {
+            echo "<p style='color:red;'>Erro: ID do usuário não informado.</p>";
+        }
         break;
+        
     case 'listarGenero':
         $generoController->listarGeneros();
         break;
+        
     case 'cadastrarGenero':
-        $generoController->cadastrarGenero($_POST['nome']);
+        if (isset($_POST['nome'])) {
+            $generoController->cadastrarGenero($_POST['nome']);
+        } else {
+            echo "<p style='color:red;'>Erro: Nome do gênero não informado.</p>";
+        }
         break;
+        
     case 'editarGenero':
-        $generoController->editarGenero($_POST['id'], $_POST['nome']);
+        if (isset($_POST['id'], $_POST['nome'])) {
+            $generoController->editarGenero($_POST['id'], $_POST['nome']);
+        } else {
+            echo "<p style='color:red;'>Erro: Dados insuficientes para edição do gênero.</p>";
+        }
         break;
+        
     case 'excluirGenero':
-        $generoController->excluirGenero($_GET['id']);
+        if (isset($_GET['id'])) {
+            $generoController->excluirGenero($_GET['id']);
+        } else {
+            echo "<p style='color:red;'>Erro: ID do gênero não informado.</p>";
+        }
         break;
+        
     case 'listarRecomendacoes':
         $recomendacoesController->listarRecomendacoes();
         break;
+        
     case 'formCadastrarRecomendacoes':
         $recomendacoesController->formCadastrarRecomendacoes();
         break;
+        
     case 'cadastrarRecomendacoes':
-        $recomendacoesController->cadastrarRecomendacoes($_POST['usuarioId'], $_POST['generoId'], $_POST['livroRecomendado']);
+        if (isset($_POST['usuario_id'], $_POST['genero_id'], $_POST['livroRecomendado'])) {
+            $recomendacoesController->cadastrarRecomendacoes($_POST['usuario_id'], $_POST['genero_id'], $_POST['livroRecomendado']);
+        } else {
+            echo "<p style='color:red;'>Erro: Dados insuficientes para cadastrar recomendação.</p>";
+        }
         break;
+        
     case 'editarRecomendacoes':
-        $recomendacoesController->editarRecomendacoes($_POST['id'], $_POST['usuarioId'], $_POST['generoId'], $_POST['livroRecomendado']);
+        if (isset($_POST['id'], $_POST['usuario_id'], $_POST['genero_id'], $_POST['livroRecomendado'])) {
+            $recomendacoesController->editarRecomendacoes($_POST['id'], $_POST['usuario_id'], $_POST['genero_id'], $_POST['livroRecomendado']);
+        } else {
+            echo "<p style='color:red;'>Erro: Dados insuficientes para edição da recomendação.</p>";
+        }
         break;
+        
     case 'excluirRecomendacoes':
-        $recomendacoesController->excluirRecomendacoes($_GET['id']);
+        if (isset($_GET['id'])) {
+            $recomendacoesController->excluirRecomendacoes($_GET['id']);
+        } else {
+            echo "<p style='color:red;'>Erro: ID da recomendação não informado.</p>";
+        }
         break;
+        
     case 'formUsuario':
         include_once '../views/Usuario/formUsuario.php';
         break;
-    
+        
     case 'formGenero':
         include_once '../views/Genero/formGenero.php';
         break;
@@ -66,11 +116,15 @@ switch ($page) {
         break;
 
     case 'formEditarRecomendacoes':
-        $recomendacoesController->formEditarRecomendacoes($_GET['id']);
+        if (isset($_GET['id'])) {
+            $recomendacoesController->formEditarRecomendacoes($_GET['id']);
+        } else {
+            echo "<p style='color:red;'>Erro: ID da recomendação não informado.</p>";
+        }
         break;
         
     default:
-        echo "Página não encontrada!";
+        echo "<p style='color:red;'>Página não encontrada!</p>";
         break;
 }
 ?>
