@@ -27,7 +27,7 @@ class RecomendacoesDAO {
     }
 
     public function update($id, $usuarioId, $generoId, $livroRecomendado) {
-        $sql = "UPDATE recomendacao SET usuario_id = :usuarioId, genero_id = :generoId, livro_recomendado = :livroRecomendado WHERE id = :id";
+        $sql = "UPDATE recomendacoes SET usuario_id = :usuarioId, genero_id = :generoId, livro_recomendado = :livroRecomendado WHERE id = :id";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':usuarioId', $usuarioId);
@@ -35,16 +35,18 @@ class RecomendacoesDAO {
         $stmt->bindParam(':livroRecomendado', $livroRecomendado);
         $stmt->execute();
     }
+    
 
     public function delete($id) {
-        $sql = "DELETE FROM recomendacao WHERE id = :id";
+        $sql = "DELETE FROM recomendacoes WHERE id = :id";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
+    
 
     public function getById($id) {
-        $sql = "SELECT * FROM recomendacao WHERE id = :id";
+        $sql = "SELECT * FROM recomendacoes WHERE id = :id";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
